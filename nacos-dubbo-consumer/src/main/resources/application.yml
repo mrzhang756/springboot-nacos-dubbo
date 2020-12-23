@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: nacos-dubbo-consumer
+  profiles:
+    active: dev
+server:
+  port: 9082
+
+#nacos配置中心配置
+#nacos:
+#  config:
+#    server-addr: 172.26.130.36:8848
+#    namespace: 2a3b8d1b-b152-4c84-830e-f639956b39e3
+#    file-extension: yml
+#    group: DEFAULT_GROUP
+
+#nacos+dubbo注册中心配置
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: nacos://172.26.130.36:8848
+    parameters[namespace]: 2a3b8d1b-b152-4c84-830e-f639956b39e3
+  ## Dubbo Protocol
+  protocol:
+    name: dubbo
+    port: -1
+  scan.base-packages: cn.xdf.service

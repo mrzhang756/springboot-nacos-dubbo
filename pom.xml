@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--指定当前项目继承spring-boot-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>cn.xdf</groupId>
+    <artifactId>nacos-dubbo-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>nacos-dubbo-parent</name>
+    <description>parent project for Spring Boot</description>
+    <!-- 将当前项目定义为pom -->
+    <packaging>pom</packaging>
+
+    <!--注册子项目，后面创建的二级子项目在父项目中注册-->
+    <modules>
+        <module>nacos-dubbo-provider</module>
+        <module>nacos-dubbo-common</module>
+        <module>nacos-dubbo-consumer</module>
+    </modules>
+
+    <!--项目中依赖版本统一管理-->
+    <properties>
+        <java.version>1.8</java.version>
+        <springboot.version>2.4.1</springboot.version>
+        <compiler.plugin.version>3.8.1</compiler.plugin.version>
+        <war.plugin.version>3.2.3</war.plugin.version>
+        <jar.plugin.version>3.1.2</jar.plugin.version>
+
+        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
+        <dubbo-nacos-spring-boot.version>2.7.3</dubbo-nacos-spring-boot.version>
+        <nacos.version>1.0.1</nacos.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- web组件 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+            <!-- springboot + Nacos 配置中心 start-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${nacos-config-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-actuator</artifactId>
+                <version>${nacos-config-spring-boot.version}</version>
+            </dependency>
+            <!-- springboot + Nacos 配置中心 end -->
+
+
+            <!-- springboot + Nacos + dubbo 注册中心 start -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo-nacos-spring-boot.version}</version>
+            </dependency>
+
+            <!-- Dubbo Registry Nacos -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-registry-nacos</artifactId>
+                <version>${dubbo-nacos-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <!-- springboot + Nacos + dubbo 注册中心 end -->
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${war.plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${jar.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="nacos-dubbo-consumer" />
+        <module name="nacos-dubbo-provider" />
+        <module name="nacos-dubbo-api" />
+        <module name="nacos-dubbo-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nacos-dubbo-api" target="1.8" />
+      <module name="nacos-dubbo-common" target="1.8" />
+      <module name="nacos-dubbo-consumer" target="1.8" />
+      <module name="nacos-dubbo-parent" target="1.8" />
+      <module name="nacos-dubbo-provider" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="nacos-dubbo-api" options="-parameters" />
+      <module name="nacos-dubbo-common" options="-parameters" />
+      <module name="nacos-dubbo-consumer" options="-parameters" />
+      <module name="nacos-dubbo-parent" options="" />
+      <module name="nacos-dubbo-provider" options="-parameters" />
+    </option>
+  </component>
+</project>
