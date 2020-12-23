@@ -4,7 +4,9 @@ springboot集成nacos（配置中心、注册中心）+ dubbo（远程调用）
 
 版本：
 
-springboot：2.4.1
+jdk.version：1.8
+
+springboot.version：2.4.1
 
 nacos-config-spring-boot.version：0.2.1
 
