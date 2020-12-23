@@ -10,6 +10,7 @@ package cn.xdf.service;
  * @version: v1.0
  */
 public interface DemoService {
+    
     String sayHello(String name);
 
     String service1();
