@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @package: cn.xdf
- * @description: TODO
+ * @description: TODO 服务发现方
  * @author: zhangshuai21
  * @date: 2020年12月22日 18:21
  * @version: v1.0
