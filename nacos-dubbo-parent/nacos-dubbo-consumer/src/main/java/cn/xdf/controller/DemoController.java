@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @package: cn.xdf.controller
- * @description: TODO
+ * @description: TODO 服务发现方 测试 调用服务提供方
  * @author: zhangshuai21
  * @date: 2020年12月22日 18:47
  * @version: v1.0
@@ -30,11 +30,15 @@ public class DemoController {
      */
     @GetMapping(value = "/service1")
     private String service1() {
+        logger.info("consumer--调用-->provider");
+        String hello = demoService.sayHello("mercyblitz");
+        logger.info("sayHello():", hello);
         return demoService.service1();
     }
 
     @Bean
     public ApplicationRunner runner() {
+
         return args -> logger.info(demoService.sayHello("mercyblitz"));
     }
 
